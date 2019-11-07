@@ -3,14 +3,17 @@ import Header from '../components/header';
 import Body from '../components/body_LandingPage'
 import Footer from '../components/footer';
 
-function LandingPage() {
+class LandingPage extends React.Component  {
+  render() {
   return (
     <div class ="App">
-      <Header/>
+      asd
+      {/* <Header/>
       <Body/>
-      <Footer />
+      <Footer /> */}
     </div>
   );
+}
 }
 
 export default LandingPage;

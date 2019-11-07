@@ -1,7 +1,7 @@
 import React from 'react';
 import circled_right from './Images/circled-right-2.png'
 
-class Body_landingPage extends React.Component{
+class Body_landingPage extends React.Component {
     render(){
         return(
             <div>
