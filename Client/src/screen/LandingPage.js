@@ -7,10 +7,9 @@ class LandingPage extends React.Component  {
   render() {
   return (
     <div class ="App">
-      asd
-      {/* <Header/>
-      <Body/>
-      <Footer /> */}
+        <Header/>
+        <Body/>
+        <Footer />
     </div>
   );
 }
