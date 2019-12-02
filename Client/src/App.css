@@ -27,3 +27,11 @@ a {
   margin: 50px 0px 100px 0px;
 }
 
+.listNoneBullet {
+  list-style: none;
+}
+
+.inputOtherLine {
+  display: block;
+  margin : 5px auto;
+}

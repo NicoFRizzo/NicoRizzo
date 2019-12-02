@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import CitiesDetail from '../components/CitiesDetail';
+import Body_Cities from '../components/BodyTwo';
 import Footer from '../components/footer';
 
 class Cities extends React.Component {
@@ -8,7 +8,7 @@ class Cities extends React.Component {
         return (
             <div className="App">
               <Header/>
-              <CitiesDetail/> 
+              <Body_Cities/> 
               <Footer/>
             </div>
           );

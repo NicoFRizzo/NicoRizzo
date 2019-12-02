@@ -1,5 +1,9 @@
-import React from 'react';
-//import FetchCities from './fetchApi';
+import React from 'react'
+
+function listAllNames(item) {
+    var listName = <li className="listNoneBullet">{item.name}</li>;
+    return listName;
+  }
 
 class CitiesDetails extends React.Component {
     constructor(props) {
@@ -8,7 +12,6 @@ class CitiesDetails extends React.Component {
           informacion: null,
         };
       }
-
     
 componentDidMount() {
     console.log("asd");
@@ -26,16 +29,11 @@ componentDidMount() {
         else
         {
             return (
-                <div>
-                        <h1> asd</h1>
-                        
-<h1>{this.state.informacion[0].name}</h1>
+                <div>                       
+                    <ul>{this.state.informacion.map(listAllNames)}</ul>
                 </div>
-                    
-                    
-
             );
-        }
+        }   
     }
 }
 
