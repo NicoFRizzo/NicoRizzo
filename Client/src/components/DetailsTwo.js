@@ -1,7 +1,8 @@
 import React from 'react'
+import listcities from './listCities'
 
 function listAllNamesTwo(item, filterText) {
-    if(filterText == "") {
+    if(filterText == '') {
     var listName = <li className="listNoneBullet">{item.name}</li>
     } 
     if (item.name.startsWith(filterText) == true) {
@@ -10,10 +11,10 @@ function listAllNamesTwo(item, filterText) {
     return listName;
 }
 
-function listAllNamesOne(item) {
-    var listName = <li className="listNoneBullet">{item.name}</li>
-    return listName;
-}
+// function listAllNamesOne(item) {
+//     var listName = <li className="listNoneBullet">{item.name}</li>
+//     return listName;
+// }
 
 class DetailsTwo extends React.Component {
     constructor(props) {
@@ -25,14 +26,13 @@ class DetailsTwo extends React.Component {
       }
     
 componentDidMount() {
-    console.log("asd");
+    console.log("Fetching");
      fetch('http://localhost:5000/cities/all')
         .then(response => response.json())
         .then(data => this.setState( { informacion: data}));
 }
 
     render() {
-        const filterText = this.props.cityFilter;
         console.log(this.state.informacion)
 
         if(this.state.informacion === null){
@@ -42,7 +42,8 @@ componentDidMount() {
         {
             return (
                 <div> 
-                    <ul>{this.state.informacion.map(listAllNamesOne)}</ul>
+                    {/* <ul>{this.state.informacion.map(listAllNamesOne)}</ul> */}
+                    <ul>{this.state.informacion.map(listcities)}</ul>
                     {/* <ul>{listAllNamesTwo(this.state.informacion, filterText)}</ul> */}
                 </div>
             );

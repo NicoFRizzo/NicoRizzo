@@ -8,7 +8,7 @@ class FilterCities extends React.Component {
   } 
   
   handleChange(e) {
-    this.props.onFilterTextChange(e.target.value);
+    //this.props.onFilterTextChange(e.target.value);
     console.log("Handling Change", e.target.value);
   }
   render() {
