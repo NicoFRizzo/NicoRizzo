@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
-import CitiesDetail from '../components/CitiesDetail';
+import listcities from './listCities'
 
-class Body_Cities extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-        cityFilter: ""
-        }
-      }
-          
-      handleChange = (e) => {
-        this.setState({
-          cityFilter: e.target.value
-        })
-        this.props.onChange(e.target.value)
-      }
-      
-        render(){
-        return(
-            <div>
-                <label>Wich city are you looking for?</label>
-                <input className="inputOtherLine" align="right"
-                value={this.state.cityFilter} 
-                onChange={this.handleChange}/>
-
-                <CitiesDetail/> 
-            </div>
-        );
+class BodyTwo extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      stringFilter: null,
+      listCities: null
     }
+  }
+
+  componentDidMount() {
+    console.log("Fetching");
+    fetch('http://localhost:5000/cities/all')
+      .then(response => response.json())
+      .then(data => this.setState({ listCities: data }));
+  }
+
+  handleChange(e) {
+    this.setState({ stringFilter: e.target.value })
+  }
+
+  render() {
+
+    console.log(this.state.stringFilter)
+    if (this.state.listCities === null) {
+      return ('Cargando')
+    }
+    else {
+      return (
+        <div>
+          <form>
+            <input className="inputOtherLine" align="right"
+              value={this.props.cityFilter}
+              onChange={(e) => { this.handleChange(e) }} />
+          </form>
+
+          <ul>
+            {this.state.listCities &&
+              this.state.listCities.filter((city) => {
+                return (city.name.indexOf(this.state.stringFilter) != -1) || this.state.stringFilter == null
+              })
+
+                .map(listcities)}
+          </ul>
+        </div>
+      );
+    }
+  }
 }
 
-export default Body_Cities;
+export default BodyTwo;
