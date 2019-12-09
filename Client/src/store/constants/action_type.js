@@ -1,0 +1,5 @@
+export const SET_FILTER_TEXT = "SET_FILTER_TEXT";
+export const SET_ON_FILTER_TEXT_CHANGE = "SET_ON_FILTER_TEXT_CHANGE";
+export const ADD_ARTICLE = "ADD_ARTICLE";
+export const FETCH_DATA = "FETCH_DATA";
+export const LEAVE_DATA = "LEAVE_DATA";

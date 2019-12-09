@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import Body_Cities from '../components/Body_Cities';
+import Body_Cities from '../components/body_Cities_Redux';
 import Footer from '../components/footer';
 
 class Cities extends React.Component {

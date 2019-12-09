@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import listcities from './listCities'
+import listcitiesfounded from './listCities'
 
 class BodyTwo extends React.Component {
   constructor(props) {
@@ -42,8 +42,9 @@ class BodyTwo extends React.Component {
                 return (city.name.indexOf(this.state.stringFilter) != -1) || this.state.stringFilter == null
               })
 
-                .map(listcities)}
+                .map(listcitiesfounded)}
           </ul>
+
         </div>
       );
     }
