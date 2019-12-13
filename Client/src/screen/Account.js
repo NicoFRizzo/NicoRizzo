@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/header';
-import Body from '../components/body_LandingPage'
+import Body_Account from '../components/body_Account'
 import Footer from '../components/footer';
 
 function Account() {
   return (
     <div class ="App">
-      <Header/>
-      Account
+      <h2>Create Account</h2>
+      <Body_Account/>
       <Footer />
     </div>
   );

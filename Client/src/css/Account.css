@@ -1,0 +1,33 @@
+.circle {
+    background-color:#fff;
+    border:2px solid black;    
+    height:120px;
+    width:120px;
+    line-height: 120px;
+    border-radius:50%;
+    font-size: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.conditionsLink {
+    margin: 0px;
+}
+
+.conditions_margin {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.submit {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    display: inline-block;
+    margin-top: 30px;
+  }
+  
+  .submit:hover {
+    background-color: #555555;
+    color: white;
+  }

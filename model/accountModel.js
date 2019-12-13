@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-const citySchema = new mongoose.Schema({
-    name: {
+const acccountSchema = new mongoose.Schema({
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    country: {
+    password: {
         type: String,
         required: true
     },
-    img: {
+    picture: {
         type: String,
     }
 })
 
-module.exports = mongoose.model('city', citySchema)
+module.exports = mongoose.model('account', acccountSchema)

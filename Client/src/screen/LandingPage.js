@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/header';
-import Body from '../components/body_LandingPage'
+import Body_LandingPage from '../components/body_LandingPage'
 import Footer from '../components/footer';
 
 function LandingPage() {
   return (
     <div className="App">
       <Header/>
-      <Body/> 
+      <Body_LandingPage/> 
       <Footer />
     </div>
   );

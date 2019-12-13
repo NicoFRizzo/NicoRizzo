@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landing from './screen/LandingPage';
 import Account from './screen/Account';

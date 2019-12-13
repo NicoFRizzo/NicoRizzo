@@ -2,6 +2,8 @@ import React from 'react';
 import circled_right from './Images/circled-right-2.png';
 import {Link} from "react-router-dom";
 
+import '../css/LandingPage.css';
+
 class Body_landingPage extends React.Component{
     render(){
         return(
@@ -10,8 +12,8 @@ class Body_landingPage extends React.Component{
             <h2>Start browsing</h2>
             <Link to="/Cities"><img className='img-circled_right' src={circled_right}/></Link>
             <p>Want to build tour own MYtinerary?</p>
-            <Link to="/LogIn"><a href="#">Log in</a></Link>
-            <Link to="/Account"><a href="#">Create Account</a></Link>
+            <Link to="/LogIn"><a href="LogIn" className="Links_margin">Log in</a></Link>
+            <Link to="/Account"><a href="Account" className="Links_margin">Create Account</a></Link>
             </div>
         );
     }

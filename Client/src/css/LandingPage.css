@@ -1,0 +1,25 @@
+* {
+  text-align: center;
+}
+
+.listNoneBullet {
+  list-style: none;
+}
+
+.inputOtherLine {
+  display: block;
+  margin : 5px auto;
+}
+
+.center {
+    margin-bottom: 50px;
+}
+
+.img-circled_right {
+    width: 100px;
+    margin-bottom: 25px;
+  }
+  
+  .Links_margin {
+    margin: 0px 30px 0px 30px;
+  }
