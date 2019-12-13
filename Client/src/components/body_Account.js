@@ -1,30 +1,52 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import '../css/Account.css'
 
-class Body_Account extends React.Component{
+class Body_Account extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            valueUser: '',
-            valuePassword: ''
+            info: {
+                user: '',
+                password: ''
+            }
         };
-    
+
         // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
-      
-    handleSubmit(event) {
-        alert('Your user is: ' + this.state.valueUser + ', and your password is: ' + this.state.valuePassword);
-        event.preventDefault();
-      }
+    }
 
-    render(){
-        return(
+    handleChange(event) {
+        let { name, value } = event.target;
+        this.setState({
+            info: {
+                ...this.state.info,
+                [name]: value
+            }
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state);
+        console.log(this.state.info);
+        fetch('http://localhost:5000/accounts/create', {
+            method: 'POST',
+            body: JSON.stringify(this.state.info),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('Error al hacer el Post', error))
+            .then(response => console.log('Post exitoso', response));
+    }
+
+    render() {
+        return (
             <div>
                 <div className="circle"><a href="#">Add photo</a></div>
-                
+
                 <form onSubmit={this.handleSubmit}>
                     {/* <table align="center" className="conditions_margin">
                         <tr>
@@ -69,17 +91,17 @@ class Body_Account extends React.Component{
 
                     <label for="user">User</label>
                     <input type="text" id="user" name="user" required
-                    value={this.state.valueUser}
-                    // onChange={this.handleChange}
-                    />
+                        value={this.state.user}
+                        onChange={(e) => this.handleChange(e)}
+                    /><br />
 
                     <label for="pass">Password</label>
                     <input type="text" id="pass" name="password" required
-                    value={this.state.valuePassword}
-                    // onChange={this.handleChange}
+                        value={this.state.password}
+                        onChange={(e) => this.handleChange(e)}
                     />
 
-                    <input type="submit" value="Submit" className="submit"/>
+                    <input type="submit" value="Submit" className="submit" />
                 </form>
             </div>
         );

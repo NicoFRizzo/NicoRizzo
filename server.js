@@ -8,6 +8,9 @@ const port = process.env.PORT || 5000;
 const db = require('./keys').mongoURI;
 const mongoose = require('mongoose');
 
+const cors = require('cors')
+
+
 //const MongoClient = require('mongoose');
 // var ObjectID = require('mongodb').ObjectID;
 
@@ -17,7 +20,7 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors());
 // app.get('/api/hello', (req, res) => {
 //         res.send({ express: 'Hello From Express Api/Hello' });
 //     });
@@ -36,20 +39,20 @@ mongoose.connect("mongodb+srv://desauser:nico123@MongoCluster-fkido.mongodb.net/
       console.log('Connected to DB');
 })
 */
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true })
-    .then(() => console.log('Connection to Mongo DB established'))
-    .catch(err => console.log(err));
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .then(() => console.log('Connection to Mongo DB established'))
+  .catch(err => console.log(err));
 
 
-    // mongoose.collection("name").save(name, (err, result) => {
-    //     if(err) {
-    //       console.log(err);
-    //     }
+// mongoose.collection("name").save(name, (err, result) => {
+//     if(err) {
+//       console.log(err);
+//     }
 
-    // dbase.collection("name").save(name, (err, result) => {
-    //   if(err) {
-    //     console.log(err);
-    //   }
+// dbase.collection("name").save(name, (err, result) => {
+//   if(err) {
+//     console.log(err);
+//   }
 /*
     app.post('/name/add', (req, res, next) => {
     
@@ -65,4 +68,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology:true, useCreate
     });
   */
 
-    app.use('/cities', require('./routes/cities'))
+app.use('/cities', require('./routes/cities'))
+app.use('/accounts', require('./routes/account'))
+
