@@ -70,4 +70,5 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreat
 
 app.use('/cities', require('./routes/cities'))
 app.use('/accounts', require('./routes/account'))
+app.use('/logIn', require('./routes/logIn'))
 
