@@ -1,5 +1,5 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
@@ -8,8 +8,9 @@ const port = process.env.PORT || 5000;
 const db = require('./keys').mongoURI;
 const mongoose = require('mongoose');
 
-const cors = require('cors')
+const cors = require('cors');
 
+const passport = require('./passport');
 
 //const MongoClient = require('mongoose');
 // var ObjectID = require('mongodb').ObjectID;
@@ -39,10 +40,14 @@ mongoose.connect("mongodb+srv://desauser:nico123@MongoCluster-fkido.mongodb.net/
       console.log('Connected to DB');
 })
 */
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
   .then(() => console.log('Connection to Mongo DB established'))
   .catch(err => console.log(err));
-
 
 // mongoose.collection("name").save(name, (err, result) => {
 //     if(err) {
@@ -68,7 +73,16 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreat
     });
   */
 
-app.use('/cities', require('./routes/cities'))
-app.use('/accounts', require('./routes/account'))
-app.use('/logIn', require('./routes/logIn'))
+//passport middleware
+app.use(passport.initialize());
+//passport configuration
+require('./passport');
 
+app.use('/cities', require('./routes/cities'));
+
+app.use('/accounts', require('./routes/account'));
+app.use('/logIn', require('./routes/logIn'));
+
+app.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.send('ok');
+});
