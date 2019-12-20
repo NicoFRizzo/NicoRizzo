@@ -25,7 +25,8 @@ router.post('/validation', (req, res) => {
       if (err) throw err;
 
       const options = { expiresIn: 2592000 };
-      jwt.sign(payload, key, options, (err, token) => {
+      console.log('LogIn log: ', response._id);
+      jwt.sign({ id: response._id }, key, options, (err, token) => {
         if (err) {
           console.log(err);
 
