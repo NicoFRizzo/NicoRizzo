@@ -49,7 +49,6 @@ class CitiesTableRedux extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('MapState function')
   return {
     remoteCities: state.remoteCities,
     filterText2: state.filterText2

@@ -5,6 +5,7 @@ import Landing from './screen/LandingPage';
 import Account from './screen/Account';
 import Cities from './screen/Cities';
 import LogIn from './screen/LogIn';
+import GoogleLogIn from './screen/GoogleOk';
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
           <Route path='/Cities' component={Cities} />
           <Route path='/Account' component={Account} />
           <Route path='/LogIn' component={LogIn} />
+          <Route path='/GoogleLogIn' component={GoogleLogIn} />          
         </BrowserRouter>
       </div>
     )
